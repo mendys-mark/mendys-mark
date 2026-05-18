@@ -3,52 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendy's Mark Tutoring</title>
+    <title>Mendy's Mark | Tutoring Services</title>
     <style>
-        :root { --primary: #4B0082; --secondary: #8A2BE2; --light: #f4f4f9; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background-color: var(--light); }
-        .hero { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 20px; text-align: center; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        h1 { margin: 0; font-size: 2.5em; }
-        .tagline { font-style: italic; opacity: 0.9; }
-        .section { background: white; padding: 30px; border-radius: 15px; margin-top: -30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .card { border-left: 5px solid var(--primary); padding: 15px; background: #fafafa; border-radius: 5px; }
-        .cta-button { display: block; background: #25D366; color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 30px; font-size: 1.1em; }
-        footer { text-align: center; padding: 40px; color: #777; font-size: 0.9em; }
+        :root {
+            --primary-purple: #8e44ad;
+            --vibrant-pink: #e91e63;
+            --sky-blue: #00bfff;
+            --light-bg: #fdfeff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-purple), var(--sky-blue));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--vibrant-pink);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .bio-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 8px solid var(--vibrant-pink);
+        }
+
+        h2 {
+            color: var(--primary-purple);
+            margin-top: 0;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--sky-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            color: var(--vibrant-pink);
+            font-weight: bold;
+            margin: 1.5rem 0;
+        }
+
+        select {
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: 2px solid var(--primary-purple);
+            width: 100%;
+            max-width: 320px;
+            cursor: pointer;
+        }
+
+        .btn-booking {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.2rem 2.5rem;
+            background-color: var(--primary-purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+        }
+
+        .btn-booking:hover {
+            transform: translateY(-3px);
+            background-color: var(--vibrant-pink);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        strong {
+            color: var(--primary-purple);
+        }
     </style>
 </head>
 <body>
 
-<div class="hero">
+<header>
     <h1>Mendy's Mark</h1>
-    <p class="tagline">Engineering-grade precision for Grade 4 - 12 Mathematics</p>
-</div>
+    <p>Premium Mathematics Tutoring</p>
+</header>
 
 <div class="container">
-    <div class="section">
-        <h2>Expert Tutoring Services</h2>
-        <p>Providing students with the tools to master logic, solve complex problems, and build academic confidence.</p>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Primary & Senior Phase</h3>
-                <p>Grades 4-7: Building the essential foundations of arithmetic and logic.</p>
-            </div>
-            <div class="card">
-                <h3>High School Phase</h3>
-                <p>Grades 8-12: Specialized focus on Algebra, Geometry, and Exam Readiness.</p>
-            </div>
-        </div>
+    <section class="bio-section">
+        <h2>Professional Profile</h2>
+        <p>
+            As an active <strong>Civil Engineering student at the University of Johannesburg</strong>, 
+            I bring a deep understanding of mathematics and structural principles to every tutoring session. 
+            I am committed to helping students build strong foundations and gain the confidence needed to excel in their academic journey.
+        </p>
+    </section>
 
-        <a href="https://wa.me/27634619867
-          " class="cta-button">Book a Session via WhatsApp</a>
-    </div>
+    <section class="pricing-card">
+        <h2>Session Rates</h2>
+        <p>Select your grade level:</p>
+        <select id="gradeSelect" onchange="updatePrice()">
+            <option value="150">Grade 10</option>
+            <option value="175">Grade 11</option>
+            <option value="200">Grade 12</option>
+        </select>
+        
+        <div class="price-tag">R<span id="priceDisplay">150</span></div>
+        <p><em>Per hourly session</em></p>
+
+        <a href="PASTE_LINK_HERE" class="btn-booking">Schedule a Session</a>
+    </section>
 </div>
 
 <footer>
-    &copy; 2026 Mendy's Mark Tutoring. All rights reserved.
+    &copy; 2026 Mendy's Mark. All Rights Reserved.
 </footer>
+
+<script>
+    function updatePrice() {
+        const select = document.getElementById('gradeSelect');
+        const display = document.getElementById('priceDisplay');
+        display.innerText = select.value;
+    }
+</script>
 
 </body>
 </html>
